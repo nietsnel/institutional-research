@@ -1,11 +1,9 @@
 ---
 title: "R for institutional research"
-author: "Jordan Prendez"
-date: "July 25, 2016"
 output:
   github_document:
     toc: true
-    toc_depth: 1
+    toc_depth: 2
 ---
 
 
