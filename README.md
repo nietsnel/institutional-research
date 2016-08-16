@@ -1,16 +1,13 @@
-Something fascinating
+R for institutional research
 ================
 Jordan Prendez
 2016-08-16
 
-<!-- # ---  -->
-<!-- # title: "R for institutional research Two"   -->
-<!-- # author: "Jordan Prendez"   -->
-<!-- # date: "2016-08-16" -->
-<!-- # output:   -->
-<!-- #   html_document:   -->
-<!-- #   keep_md: true   -->
-<!-- # ---   -->
+-   [Introduction to R for institutional Research.](#introduction-to-r-for-institutional-research.)
+-   [Installation of R and Rstudio](#installation-of-r-and-rstudio)
+-   [Basic R](#basic-r)
+-   [R for Institutional Research](#r-for-institutional-research)
+
 Introduction to R for institutional Research.
 ---------------------------------------------
 
