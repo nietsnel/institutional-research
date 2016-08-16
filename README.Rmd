@@ -1,5 +1,5 @@
 --- 
-title: "R for institutional research 2"  
+title: "R for institutional research Two."  
 author: "Jordan Prendez"  
 date: "`r format(Sys.Date())`"
 output:  
