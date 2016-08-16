@@ -1,15 +1,18 @@
-R for institutional research
+Something fascinating
 ================
 Jordan Prendez
-July 25, 2016
+2016-08-16
 
--   [Introduction to R.](#introduction-to-r.)
--   [Installation of R and Rstudio](#installation-of-r-and-rstudio)
--   [Basic R](#basic-r)
--   [R for Institutional Research](#r-for-institutional-research)
-
-Introduction to R.
-------------------
+<!-- # ---  -->
+<!-- # title: "R for institutional research Two"   -->
+<!-- # author: "Jordan Prendez"   -->
+<!-- # date: "2016-08-16" -->
+<!-- # output:   -->
+<!-- #   html_document:   -->
+<!-- #   keep_md: true   -->
+<!-- # ---   -->
+Introduction to R for institutional Research.
+---------------------------------------------
 
 R is a programming language that is the Lingua franca of statistics. One of the most cited benefits of R is that it can produce publication quality graphics that can highly modified. The base R language includes common statistical procedures, however, R's wide spread use is undoutably related to the the ever growing set of user created statistical packages. Finally, another *huge* benefit is **R is availible for free**. This is especially important in the era of decreasing support and tighter budgets in higher education.
 
@@ -30,8 +33,7 @@ Almost everything we do from this point onwards can be accomplished in base R (w
 
 <https://www.rstudio.com/products/rstudio/download2/>
 
-<img style="float: left" src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-All-Gray.png" width="200" height="200" />
-
+<!-- <img style="float: left" src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-All-Gray.png" width="200" height="200" /> -->
 Once this is installed you are ready to start using R!
 
 This presentation can be opened in R and the code executed directly from the R scripting window. Rstudio can open traditional R scripts .R, in addition to Rmarkdown files .Rmd (this presentation) and other more interactive file types.
