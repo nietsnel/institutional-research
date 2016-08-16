@@ -9,16 +9,6 @@ output:
 
 
 
-<!-- --- -->
-<!-- title: "R for institutional research" -->
-<!-- output: -->
-<!-- github_document: -->
-<!--    keep_md: TRUE -->
-<!--    hard_line_breaks: FALSE -->
-<!--    toc: TRUE -->
-<!--    toc_depth: 2 -->
-<!-- --- -->
-
 
 ## Introduction to R for institutional Research.
 
