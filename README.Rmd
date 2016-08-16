@@ -4,10 +4,9 @@ author: "Jordan Prendez"
 date: "July 25, 2016"
 output:
   github_document:
-    toc: true
+    toc: yes
     toc_depth: 2
 ---
-
 
 
 ## Introduction to R.
@@ -33,7 +32,7 @@ Almost everything we do from this point onwards can be accomplished in base R (w
 
 https://www.rstudio.com/products/rstudio/download2/
 
-<img style="float: left" src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-All-Gray.png" width="200" height="200" />
+<!-- <img style="float: left" src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-All-Gray.png" width="200" height="200" /> -->
 
 Once this is installed you are ready to start using R!
 
