@@ -1,10 +1,10 @@
----
-title: "R for institutional research"
-output:
-  github_document:
-    toc: true
-    toc_depth: 2
----
+<!-- # --- -->
+<!-- # title: "R for institutional research" -->
+<!-- # output: -->
+<!-- #   github_document: -->
+<!-- #     toc: true -->
+<!-- #     toc_depth: 2 -->
+<!-- # --- -->
 
 
 ## Introduction to R.
