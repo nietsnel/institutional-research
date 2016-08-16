@@ -4,8 +4,8 @@ author: "Jordan Prendez"
 date: "July 25, 2016"
 output:
   github_document:
-    toc: yes
-    toc_depth: 2
+    toc: true
+    toc_depth: 1
 ---
 
 
