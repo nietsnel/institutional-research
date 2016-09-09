@@ -226,19 +226,21 @@ glimpse(data_set2) ##another way of obtaining summary information about a datase
 
 ### Combining datasets
 
-Lets take a sample of the dataframe that we just named "data\_set" and name it "data\_set\_small".
+Lets take a sample of the dataframe in memory called "data\_set" and name it "data\_set\_small".
 
 ``` r
 data_set_small<- sample_frac(tbl=data_set, size=0.5, replace=FALSE)
 ```
 
-Next lets merge our new "data\_set\_small" to our dataframe that we named "data\_set".
+Next, merge our new "data\_set\_small" to our dataframe that we named "data\_set".
 
 ``` r
 in_common_dataset<- semi_join(x=data_set_small, y=data_set, by="UNITID")
 ```
 
 This command gives us a new dataset called "in\_common\_dataset". The environment quadrant in the top right of Rstudio should show us that this new dataset contains the same number of records that have a match in the second dataset (i.e. the number that match a record in "data\_set").
+
+There are many different types of ways to combine datasets. For a list of other useful commands including merges see the Rstudio cheatsheet for datawrangling [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 
 R produced high quality graphs. Here is an example of graphing using the popular ggplot2 package.
 
