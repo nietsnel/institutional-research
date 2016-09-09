@@ -24,7 +24,7 @@ R is maintained by the R foundation and can be downloaded from the following web
 
 <img style="float: right" src="https://www.r-project.org/logo/Rlogo.svg" width="200" height="200"/>
 
-Almost everything we do from this point onwards can be accomplished in base R (what we have installed so far) but I prefer and would recommend using the Rstudio environment. Rstudio is a user interface that keeps R organized and automates some of the written code into a point in click interface.
+Everything we do from this point onwards can be accomplished in base R (what we have installed so far) but I prefer and would recommend using the Rstudio environment. Rstudio is a user interface that keeps R organized and automates some of the written code into a point in click interface.
 
 ### Download the R studio interface from here
 
@@ -56,12 +56,12 @@ library(Rcmdr)  #Run this line
 Rcommander() #and execute this line to start R commander from the R console (or script window) each time you want to start R commander.
 ```
 
-More info [1] and more [2]
+For more info about Rcmdr see the appropriate footnotes at the bottom of this page. [1] [2]
 
 Basic R
 -------
 
-Practice executing code: R as a calculator. For this example, and all the following use Rstudio (not base R or Rcommander)
+Practice executing code: R as a calculator. For this example, practice executing the following commands in the R console.
 
 ``` r
 ##Run these examples yourself. Try your own values.
@@ -72,6 +72,8 @@ abs(-10-500)
 
 sqrt(pi+2)
 ```
+
+Executing the commands above, and others, will help give you practice in the Rstudio environment and demonstrate basic R functionality.
 
 R for Institutional Research
 ----------------------------
@@ -96,7 +98,7 @@ There are a few basic functions that are very important to understand in R.
 1.  Assigning variables
 2.  How to view data
 3.  Basic subsetting
-4.  Exporting data from R.
+4.  Exporting data from R. <!-- 5. Joining a dataset [coming soon] -->
 
 #### Variable assignment
 
@@ -202,12 +204,12 @@ The dplyr and tidyr packages are two of the best packages for data wrangling. He
   install.packages("scales", repos="http://cran.us.r-project.org", dependencies = TRUE) #installs the dplyr package - this should only be run once. The scales packages is used in our graphing example. 
 
 
-  library(tidyr) ##then attach them
-  library(dplyr)
-  library(scales)
+library(tidyr) ##then attach them
+library(dplyr)
+library(scales)
 ```
 
-The following filters and commands should apply to "data\_set". See RStudio cheatsheet on datawrangling for more info. Here is an example on how we can subset our loaded "dataset"
+The following filters and commands should apply to "data\_set". See the RStudio cheatsheet on datawrangling for more info. Here is an example on how we can subset our loaded "dataset"
 
 ``` r
 data_set2 <- data_set %>%  #the first line of code indicates that we want our subsetted dataset assigned to a new variable called "dataset2". 
@@ -221,6 +223,22 @@ View(dataset2) ##view the results of our data manipulations
 
 glimpse(data_set2) ##another way of obtaining summary information about a dataset
 ```
+
+### Combining datasets
+
+Lets take a sample of the dataframe that we just named "data\_set" and name it "data\_set\_small".
+
+``` r
+data_set_small<- sample_frac(tbl=data_set, size=0.5, replace=FALSE)
+```
+
+Next lets merge our new "data\_set\_small" to our dataframe that we named "data\_set".
+
+``` r
+in_common_dataset<- semi_join(x=data_set_small, y=data_set, by="UNITID")
+```
+
+This command gives us a new dataset called "in\_common\_dataset". The environment quadrant in the top right of Rstudio should show us that this new dataset contains the same number of records that have a match in the second dataset (i.e. the number that match a record in "data\_set").
 
 R produced high quality graphs. Here is an example of graphing using the popular ggplot2 package.
 
@@ -245,7 +263,7 @@ ggplot(data, aes(x = cost_attend, y = earnings)) +  #specifies which columns we 
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-markdown_github/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
 
 Here we can add color to each group while putting into the foreground the remaining groups. While the black and white version, above, is fairly clear, graphing with color can highlight group differences in a more realistic example.
 
@@ -264,7 +282,7 @@ ggplot(data, aes(x = cost_attend, y = earnings, colour = AWLEVEL)) +  #specifies
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /> Source [3]
+<img src="README_files/figure-markdown_github/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /> Source [3]
 
 We can also easily perform statistical analysis in R. Here we see we can see that it takes only two lines of code to perform a linear regression. (data for this regression is not included in HTML)
 
@@ -317,7 +335,7 @@ ggplot(dat, aes(x=xvar, y=yvar)) +
     ylab("Need for ice-cream")  #adds a y lable
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-markdown_github/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
 
 ### Further Resources
 
