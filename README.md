@@ -1,7 +1,7 @@
 R for institutional research
 ================
 Jordan Prendez
-2016-08-16
+2016-09-09
 
 -   [Introduction to R for institutional Research.](#introduction-to-r-for-institutional-research.)
 -   [Installation of R and Rstudio](#installation-of-r-and-rstudio)
@@ -18,7 +18,7 @@ While R was not made specifically for institutional research it can perform all 
 Installation of R and Rstudio
 -----------------------------
 
-R is maintained by the R foundation and can be downloaded from the following website. R is availible to Windows, OS X and and Linux. Click on the appropriate link and follow the instructions to install R. This guide is written for the windows version of R.
+R is maintained by the R foundation and can be downloaded from the following website. R is availible to Windows, OS X and and Linux. Click on the appropriate link and follow the instructions to install R. This guide is written for the windows version of R. If you have already installed R it is important to make sure you have the most updated version (some parts of this tutorial may not work with older versions of R.)
 
 <https://cran.r-project.org/>
 
@@ -72,59 +72,6 @@ abs(-10-500)
 
 sqrt(pi+2)
 ```
-
-We can also easily perform statistical analysis in R. Here we see we can see that it takes only two lines of code to perform a linear regression. (data for this regression is not included in HTML)
-
-``` r
-ans <- lm(dat$xvar ~ dat$yvar)  ##code to run a linear model on two variables within the "dat" dataset. We can access a variable within a data.frame using the "$". 
-summary(ans)  ##Gives us the summary of the results -- shown below
-```
-
-    ## 
-    ## Call:
-    ## lm(formula = dat$xvar ~ dat$yvar)
-    ## 
-    ## Residuals:
-    ##    Min     1Q Median     3Q    Max 
-    ## -9.385 -2.411  1.441  2.649  7.820 
-    ## 
-    ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)   2.9557     1.8431   1.604 0.126187    
-    ## dat$yvar      0.6267     0.1460   4.292 0.000438 ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 4.659 on 18 degrees of freedom
-    ## Multiple R-squared:  0.5058, Adjusted R-squared:  0.4784 
-    ## F-statistic: 18.43 on 1 and 18 DF,  p-value: 0.0004384
-
-``` r
-  install.packages("ggplot2", repos="http://cran.us.r-project.org", dependencies = TRUE) #installs the dplyr package - this should only be run once. The scales packages is used in our graphing example. 
-
-library(ggplot2)
-```
-
-We can then graph those results ...
-
-``` r
-library(ggplot2)
-
-##credit http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/  
-##^ great website for more graphing ideas. 
-
-##this code block graphs that dataset
-
-ggplot(dat, aes(x=xvar, y=yvar)) +
-    geom_point(shape=1) +    # Use hollow circles
-    geom_smooth(method=lm) +  # Add linear regression line -- (by default includes 95% confidence region)
-    theme_bw() + #changes the background color
-    ggtitle("Important research") + #adds a main title
-    xlab("Temperature") + #adds a x lable
-    ylab("Need for ice-cream")  #adds a y lable
-```
-
-<img src="README_files/figure-markdown_github/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 R for Institutional Research
 ----------------------------
@@ -238,7 +185,7 @@ Once the inst.research package is installed We must attach it using the library 
 ``` r
 library(inst.research) ##attach the inst.research package
 
-import_labels(dataset="C:/Users/jprendez/Desktop/c2015_a.csv", definitions="C:/Users/jprendez/Desktop/definitions_1.txt")
+import_labels(dataset="C:/Users/jordan/Desktop/c2015_a.csv", definitions="C:/Users/jordan/Desktop/definitions_1.txt")
 ```
 
 #### More tools for institutional research:
@@ -298,7 +245,7 @@ ggplot(data, aes(x = cost_attend, y = earnings)) +  #specifies which columns we 
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-markdown_github/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
 
 Here we can add color to each group while putting into the foreground the remaining groups. While the black and white version, above, is fairly clear, graphing with color can highlight group differences in a more realistic example.
 
@@ -317,7 +264,60 @@ ggplot(data, aes(x = cost_attend, y = earnings, colour = AWLEVEL)) +  #specifies
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /> Source [3]
+<img src="README_files/figure-markdown_github/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /> Source [3]
+
+We can also easily perform statistical analysis in R. Here we see we can see that it takes only two lines of code to perform a linear regression. (data for this regression is not included in HTML)
+
+``` r
+ans <- lm(dat$xvar ~ dat$yvar)  ##code to run a linear model on two variables within the "dat" dataset. We can access a variable within a data.frame using the "$". 
+summary(ans)  ##Gives us the summary of the results -- shown below
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = dat$xvar ~ dat$yvar)
+    ## 
+    ## Residuals:
+    ##    Min     1Q Median     3Q    Max 
+    ## -9.385 -2.411  1.441  2.649  7.820 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   2.9557     1.8431   1.604 0.126187    
+    ## dat$yvar      0.6267     0.1460   4.292 0.000438 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 4.659 on 18 degrees of freedom
+    ## Multiple R-squared:  0.5058, Adjusted R-squared:  0.4784 
+    ## F-statistic: 18.43 on 1 and 18 DF,  p-value: 0.0004384
+
+``` r
+  install.packages("ggplot2", repos="http://cran.us.r-project.org", dependencies = TRUE) #installs the dplyr package - this should only be run once. The scales packages is used in our graphing example. 
+
+library(ggplot2)
+```
+
+We can then graph those results ...
+
+``` r
+library(ggplot2)
+
+##credit http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/  
+##^ great website for more graphing ideas. 
+
+##this code block graphs that dataset
+
+ggplot(dat, aes(x=xvar, y=yvar)) +
+    geom_point(shape=1) +    # Use hollow circles
+    geom_smooth(method=lm) +  # Add linear regression line -- (by default includes 95% confidence region)
+    theme_bw() + #changes the background color
+    ggtitle("Important research") + #adds a main title
+    xlab("Temperature") + #adds a x lable
+    ylab("Need for ice-cream")  #adds a y lable
+```
+
+<img src="README_files/figure-markdown_github/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
 
 ### Further Resources
 
