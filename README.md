@@ -44,6 +44,13 @@ The Rstudio environment consists of four different panes of which
 
 are usually visible as the left two quadrants. The two panels on the right side change depending on need. Most of your work should be typed into the scripting window (where it can be saved) but also can be run live from the console.
 
+### Additional pre-reqs: You must download the following files listed at the top of this github page if you wish to run these analysis yourself.
+
+1.  **README.Rmd**
+2.  **Both files located in the Prerequisite files**
+
+*Once you have downloaded these files open the README.Rmd and follow along. You will need to rename the file paths to point to the two prerequisite files at the appropriate time.*
+
 For those who are transisitioning from a point in click interface there are several graphical user interfaces (GUI) availible for R that might be useful for someone transitioning.
 
 ### Download and Install R commander
@@ -226,7 +233,7 @@ library(knitr)
 # library(dataset)
 # table(data_set$MAJORNUM, data_set$CTOTALM)
 
-glimpse(data_set2)
+glimpse(data_set2) ##Use "glimpse"" to obtain a summary of the dataset
 ```
 
     ## Observations: 209,389
@@ -238,12 +245,6 @@ glimpse(data_set2)
     ## $ CTOTALM         <int> 3, 0, 2, 2, 1, 2, 2, 1, 1, 3, 2, 3, 15, 3, 2, ...
     ## $ CTOTALW         <int> 0, 4, 7, 5, 1, 1, 4, 2, 0, 1, 7, 4, 12, 3, 1, ...
     ## $ my_new_var_name <int> 3, 4, 9, 7, 2, 3, 6, 3, 1, 4, 9, 7, 27, 6, 3, ...
-
-``` r
-# ) ##view the results of our data manipulations
-
-# glimpse(data_set2) ##another way of obtaining summary information about a dataset
-```
 
 ### Combining datasets
 
