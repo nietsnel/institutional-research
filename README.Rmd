@@ -8,8 +8,6 @@ output:
     toc_depth: 2
 ---  
 
-
-
 ## Introduction to R for institutional Research.
 
 R is a programming language that is the Lingua franca of statistics. One of the most cited benefits of R is that it can produce publication quality graphics that can highly modified. The base R language includes common statistical procedures, however, R's wide spread use is undoutably related to the the ever growing set of user created statistical packages. Finally, another *huge* benefit is **R is availible for free**. This  is especially important in the era of decreasing support and tighter budgets in higher education. 

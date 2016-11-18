@@ -47,7 +47,7 @@ are usually visible as the left two quadrants. The two panels on the right side 
 ### Additional pre-reqs: You must download the following files listed at the top of this github page if you wish to run these analysis yourself.
 
 1.  **README.Rmd**
-2.  **Both files located in the Prerequisite files**
+2.  **Both files located in the "Prerequisite files" folder**
 
 *Once you have downloaded these files open the README.Rmd and follow along. You will need to rename the file paths to point to the two prerequisite files at the appropriate time.*
 
@@ -220,7 +220,21 @@ The following filters and commands should apply to "data\_set". See the RStudio 
 
 ``` r
 library(tidyverse)
+```
 
+    ## Loading tidyverse: ggplot2
+    ## Loading tidyverse: tibble
+    ## Loading tidyverse: tidyr
+    ## Loading tidyverse: readr
+    ## Loading tidyverse: purrr
+    ## Loading tidyverse: dplyr
+
+    ## Conflicts with tidy packages ----------------------------------------------
+
+    ## filter(): dplyr, stats
+    ## lag():    dplyr, stats
+
+``` r
 data_set2 <- data_set %>%  #the first line of code indicates that we want our subsetted dataset assigned to a new variable called "dataset2". 
   filter(MAJORNUM=="First major") %>% #select only records with the column MAJORNUM equal to "First major".
   filter(AWLEVEL!="Associate^s degree") %>% #select only records with the column AWLEVEL NOT equal to "Associate^s degree"
