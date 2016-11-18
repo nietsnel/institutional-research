@@ -1,7 +1,7 @@
 R for institutional research
 ================
 Jordan Prendez
-2016-09-09
+2016-11-18
 
 -   [Introduction to R for institutional Research.](#introduction-to-r-for-institutional-research.)
 -   [Installation of R and Rstudio](#installation-of-r-and-rstudio)
@@ -187,7 +187,7 @@ Once the inst.research package is installed We must attach it using the library 
 ``` r
 library(inst.research) ##attach the inst.research package
 
-import_labels(dataset="C:/Users/jordan/Desktop/c2015_a.csv", definitions="C:/Users/jordan/Desktop/definitions_1.txt")
+import_labels(dataset="C:/Users/jprendez/Desktop/c2015_a.csv", definitions="C:/Users/jprendez/Desktop/definitions_1.txt")
 ```
 
 #### More tools for institutional research:
@@ -212,6 +212,8 @@ library(scales)
 The following filters and commands should apply to "data\_set". See the RStudio cheatsheet on datawrangling for more info. Here is an example on how we can subset our loaded "dataset"
 
 ``` r
+library(tidyverse)
+
 data_set2 <- data_set %>%  #the first line of code indicates that we want our subsetted dataset assigned to a new variable called "dataset2". 
   filter(MAJORNUM=="First major") %>% #select only records with the column MAJORNUM equal to "First major".
   filter(AWLEVEL!="Associate^s degree") %>% #select only records with the column AWLEVEL NOT equal to "Associate^s degree"
@@ -219,9 +221,28 @@ data_set2 <- data_set %>%  #the first line of code indicates that we want our su
   select(UNITID, CIPCODE, MAJORNUM, AWLEVEL, CTOTALM, CTOTALW,  my_new_var_name) %>%  #selects only those columns listed (drops all others)
   rename(degree_level=AWLEVEL) #rename a column ("new name=old name")
 
-View(dataset2) ##view the results of our data manipulations
+# View(
+library(knitr)
+# library(dataset)
+# table(data_set$MAJORNUM, data_set$CTOTALM)
 
-glimpse(data_set2) ##another way of obtaining summary information about a dataset
+glimpse(data_set2)
+```
+
+    ## Observations: 209,389
+    ## Variables: 7
+    ## $ UNITID          <int> 100654, 100654, 100654, 100654, 100654, 100654...
+    ## $ CIPCODE         <fctr> Agriculture, General, Animal Sciences, Genera...
+    ## $ MAJORNUM        <fctr> First major, First major, First major, First ...
+    ## $ degree_level    <fctr> Bachelor^s degree, Bachelor^s degree, Bachelo...
+    ## $ CTOTALM         <int> 3, 0, 2, 2, 1, 2, 2, 1, 1, 3, 2, 3, 15, 3, 2, ...
+    ## $ CTOTALW         <int> 0, 4, 7, 5, 1, 1, 4, 2, 0, 1, 7, 4, 12, 3, 1, ...
+    ## $ my_new_var_name <int> 3, 4, 9, 7, 2, 3, 6, 3, 1, 4, 9, 7, 27, 6, 3, ...
+
+``` r
+# ) ##view the results of our data manipulations
+
+# glimpse(data_set2) ##another way of obtaining summary information about a dataset
 ```
 
 ### Combining datasets
@@ -241,6 +262,8 @@ in_common_dataset<- semi_join(x=data_set_small, y=data_set, by="UNITID")
 This command gives us a new dataset called "in\_common\_dataset". The environment quadrant in the top right of Rstudio should show us that this new dataset contains the same number of records that have a match in the second dataset (i.e. the number that match a record in "data\_set").
 
 There are many different types of ways to combine datasets. For a list of other useful commands including merges see the Rstudio cheatsheet for datawrangling [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+### Graphics in R
 
 R produced high quality graphs. Here is an example of graphing using the popular ggplot2 package.
 
@@ -265,7 +288,7 @@ ggplot(data, aes(x = cost_attend, y = earnings)) +  #specifies which columns we 
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-markdown_github/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
 
 Here we can add color to each group while putting into the foreground the remaining groups. While the black and white version, above, is fairly clear, graphing with color can highlight group differences in a more realistic example.
 
@@ -284,7 +307,7 @@ ggplot(data, aes(x = cost_attend, y = earnings, colour = AWLEVEL)) +  #specifies
   scale_x_continuous(labels=dollar) #indicates that the x variable is continuous and currency (scales package addon)
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /> Source [3]
+<img src="README_files/figure-markdown_github/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /> Source [3]
 
 We can also easily perform statistical analysis in R. Here we see we can see that it takes only two lines of code to perform a linear regression. (data for this regression is not included in HTML)
 
@@ -337,7 +360,7 @@ ggplot(dat, aes(x=xvar, y=yvar)) +
     ylab("Need for ice-cream")  #adds a y lable
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="README_files/figure-markdown_github/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
 
 ### Further Resources
 

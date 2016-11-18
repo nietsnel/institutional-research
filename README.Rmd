@@ -215,7 +215,7 @@ We can then use the import_labels to load a dataset for our next example
 
 library(inst.research) ##attach the inst.research package
 
-import_labels(dataset="C:/Users/jordan/Desktop/c2015_a.csv", definitions="C:/Users/jordan/Desktop/definitions_1.txt")
+import_labels(dataset="C:/Users/jprendez/Desktop/c2015_a.csv", definitions="C:/Users/jprendez/Desktop/definitions_1.txt")
 
 
 ```
@@ -242,12 +242,25 @@ library(scales)
 
 ```
 
+```{r eval=FALSE, echo=FALSE, cache=TRUE, messages=FALSE, warning=FALSE}
+flowers <- iris
+
+
+install.packages('printr', type = 'source', repos = c('http://yihui.name/xran', 'http://cran.rstudio.com'))
+library(knitr)
+# library(dataset)
+# table(data_set$MAJORNUM, data_set$CTOTALM)
+# install.packages('printr', type = 'source', repos = c('http://yihui.name/xran', 'http://cran.rstudio.com'))
+
+
+````
+
 
 The following filters and commands should apply to "data_set". See the RStudio cheatsheet on datawrangling for more info.
 Here is an example on how we can subset our loaded "dataset"
 
-```{r eval=FALSE, echo=TRUE}
-
+```{r eval=TRUE, echo=TRUE, cache=TRUE, messages=FALSE, warning=FALSE}
+library(tidyverse)
 
 data_set2 <- data_set %>%  #the first line of code indicates that we want our subsetted dataset assigned to a new variable called "dataset2". 
   filter(MAJORNUM=="First major") %>% #select only records with the column MAJORNUM equal to "First major".
@@ -256,9 +269,13 @@ data_set2 <- data_set %>%  #the first line of code indicates that we want our su
   select(UNITID, CIPCODE, MAJORNUM, AWLEVEL, CTOTALM, CTOTALW,  my_new_var_name) %>%  #selects only those columns listed (drops all others)
   rename(degree_level=AWLEVEL) #rename a column ("new name=old name")
 
-View(dataset2) ##view the results of our data manipulations
+# View(
+library(knitr)
+# library(dataset)
+# table(data_set$MAJORNUM, data_set$CTOTALM)
 
-glimpse(data_set2) ##another way of obtaining summary information about a dataset
+glimpse(data_set2) ##Use "glimpse"" to obtain a summary of the dataset
+
 
 ```
 
@@ -288,7 +305,7 @@ There are many different types of ways to combine datasets. For a list of other 
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, include=FALSE, cache=TRUE}
 
 
-##Make up some data...
+## Here I am simulating data for the upcoming graphing example. You do not need to understand this to proceed. Simply execute the code in this code chunk in order to generate the dataset used in the next example. 
 library(tidyr)
 library(dplyr)
 library(scales)
